@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <span>Angular TODO App</span>
+  
+    <!-- Mostrar el nombre de usuario solo si está logueado -->
+    <span *ngIf="isLoggedIn">Bienvenido, {{ username }}!</span>
+  
+    <!-- Mostrar el botón de salir solo si el usuario está logueado -->
+    <button *ngIf="isLoggedIn" mat-button (click)="logout()">Salir</button>
+  </mat-toolbar>

@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <span>Angular TODO App</span>
+</mat-toolbar>
+
+<mat-card>
+  <h2>Bienvenido a tu aplicación TODO</h2>
+  <button mat-raised-button color="accent">¡Clic aquí!</button>
+</mat-card>
+
+<!-- Mostrar la cabecera pública si el usuario no está logueado -->
+<app-public-header *ngIf="!isLoggedIn"></app-public-header>
+
+<!-- Mostrar la cabecera privada si el usuario está logueado -->
+<app-private-header *ngIf="isLoggedIn"></app-private-header>
+
+<router-outlet></router-outlet>
+
+<!-- Menú público: solo se muestra si el usuario NO está logueado -->
+<div *ngIf="!isLoggedIn; else loggedIn">
+  <h1>Por favor, inicia sesión</h1>
+  <!-- Aquí puedes añadir el botón de login u otros enlaces públicos -->
+  <button mat-raised-button color="primary" (click)="login()">Iniciar sesión</button>
+</div>
+
+<!-- Menú privado: solo se muestra si el usuario ESTÁ logueado -->
+<ng-template #loggedIn>
+  <div *ngIf="isLoggedIn; else privateLayout">
+    <h1>Bienvenido a la aplicación</h1>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+</ng-template>
+
+<!-- Layout privado: solo se muestra si el usuario ESTÁ logueado -->
+<ng-template #privateLayout>
+  <app-private-header></app-private-header>
+  <app-private-menu></app-private-menu>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</ng-template>

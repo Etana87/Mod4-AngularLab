@@ -1,0 +1,25 @@
+.container {
+    padding: 16px;
+  }
+
+  .login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .invalid-feedback {
+    color: red;
+    font-size: 0.875rem;
+  }
+  
+  button {
+    width: 100%;
+  }
